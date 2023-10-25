@@ -10,7 +10,7 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script using  repo variable
-          run: .\script.ps1 -Parameter1 ${{ MESSAGE_TEST }}
+          run: .\script.ps1 -Parameter1 $MESSAGE_TEST
           shell: pwsh
         - name: Script using Environment variable
           run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
