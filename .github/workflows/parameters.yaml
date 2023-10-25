@@ -1,7 +1,7 @@
 name: Parameters
 on: [workflow_dispatch]
 env:
- env_local_msg: ${{ vars.MESSAGE }}
+ env_var: ${{ vars.MESSAGE }}
 
 jobs:    
     build:
