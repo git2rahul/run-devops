@@ -11,7 +11,7 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script using  repo variable
-          run: .\script.ps1 -Parameter1 ${{ local_var_msg }}
+          run: .\script.ps1 -Parameter1 ${{ env_var }}
           shell: pwsh
         - name: Script using Environment variable
           run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
