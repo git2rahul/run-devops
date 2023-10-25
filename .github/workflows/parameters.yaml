@@ -9,14 +9,13 @@ jobs:
       environment: development
       steps:
         - uses: actions/checkout@v1
-        #- name: Script using  repo variable
-         # run: .\script.ps1 -Parameter1 $MESSAGE_TEST
-         # shell: pwsh
+        - name: Script using  repo variable
+          run: .\script.ps1 -Parameter1 $env_var
+          shell: pwsh
         - name: Script using Environment variable
           run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
           shell: pwsh
-        - name: Use variables
+        - name: Testing eco of repo  variables
           run: |
-           echo "repository variable : $REPOSITORY_VAR"
            echo "variable from shell environment : $env_var"
         
