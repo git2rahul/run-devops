@@ -1,7 +1,7 @@
 name: Parameters
 on: [workflow_dispatch]
 
-jobs:
+jobs:    
     build:
       name: Run Script
       runs-on: ubuntu-latest
@@ -11,5 +11,5 @@ jobs:
           run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
           shell: pwsh
         - name: Script using Environment variable
-          run: .\script.ps1 -Parameter1 $env:MESSAGE_ENV
+          run: .\script.ps1 -Parameter1 $MESSAGE_ENV
           shell: pwsh
