@@ -11,5 +11,5 @@ jobs:
           run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
           shell: pwsh
         - name: Script using Environment variable
-          run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
+          run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE_ENV }}
           shell: pwsh
