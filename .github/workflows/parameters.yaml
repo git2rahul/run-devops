@@ -19,6 +19,7 @@ jobs:
           run: |
            echo "variable from shell environment : $env_var"
     publish:
+      needs: build
       name: Publish Script
       runs-on: ubuntu-latest
       steps:
