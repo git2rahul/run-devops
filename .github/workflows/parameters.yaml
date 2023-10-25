@@ -1,7 +1,7 @@
 name: Parameters
 on: [workflow_dispatch]
 env:
- env_var: ${{ vars.MESSAGE-REPO }}
+ env_var: ${{ vars.MESSAGE_REPO }}
 jobs:    
     build:
       name: Run Script
