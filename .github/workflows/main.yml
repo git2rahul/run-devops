@@ -36,5 +36,5 @@ jobs:
           echo test, and deploy your project.
       - name: Build Module
         shell: pwsh
-        run: ./build.ps1
+        run: ./hello.ps1
       
