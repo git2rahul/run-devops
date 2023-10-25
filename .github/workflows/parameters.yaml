@@ -18,4 +18,10 @@ jobs:
         - name: Testing eco of repo  variables
           run: |
            echo "variable from shell environment : $env_var"
-        
+    publish:
+      name: Publish Script
+      runs-on: ubuntu-latest
+      steps:
+        - name: Testing eco of repo  variables
+          run: |
+           echo "Publishing on environment : $env_var" 
