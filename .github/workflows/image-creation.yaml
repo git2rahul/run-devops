@@ -54,8 +54,9 @@ jobs:
 
     # This job is to publish the image in the Azure compute gallery.  
     Publish-image:
+      needs:
+      - Post-Validation
       if: ${{contains(vars.job_switches, 'publish') }} 
-      needs: Post-Validation
       name: Publish Image
       runs-on: ubuntu-latest
       environment: development
