@@ -56,7 +56,7 @@ jobs:
     Publish-image:
       needs:
       - Post-Validation
-      if: ${{contains(vars.job_switches, 'publish') }} 
+      if: always() && ${{contains(vars.job_switches, 'publish') }} 
       name: Publish Image
       runs-on: ubuntu-latest
       environment: development
