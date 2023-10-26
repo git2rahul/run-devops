@@ -11,7 +11,7 @@ jobs:
         - uses: actions/checkout@v1
         - name: Script using  repo variable
         #  run: .\script.ps1 -Parameter1 ${{ env.env_var }}
-          run: .\script.ps1 -Parameter1 ${{ env[env_var] }}
+          run: .\script.ps1 -Parameter1 ${{ env['env_var'] }}
           shell: pwsh
         - name: Script using Environment variable
           run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
