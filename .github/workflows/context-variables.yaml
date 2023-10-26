@@ -6,7 +6,8 @@ env:
  #job_switches: 'check'
  
 jobs:    
-    build:
+    validate:
+      if: ${{contains(env.job_switches, 'validate') }} 
       name: Run Script
       runs-on: ubuntu-latest
       environment: development
@@ -22,9 +23,9 @@ jobs:
         - name: Testing eco of repo  variables
           run: |
            echo "variable from shell environment : $env_var"
-    publish:
-     # if: "!contains($job_switches, '[push]')"
-      needs: build
+    packer:
+      if: ${{contains(env.job_switches, 'packer') }} 
+      needs: validate
       name: Publish Script
       runs-on: ubuntu-latest
       steps:
