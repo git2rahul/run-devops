@@ -11,7 +11,7 @@ env:
 jobs:
     # This job is to validate all the input values used in workflow.
     Validate-Inputs:
-      if: contains( $env_skip_jobs, 'In' )
+      if: contains( 'In-Create-Val-Pub', 'In' )
       name: Validate Inputs
       runs-on: ubuntu-latest
       environment: development
