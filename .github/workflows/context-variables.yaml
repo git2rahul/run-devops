@@ -22,7 +22,7 @@ jobs:
           shell: pwsh
         - name: Testing eco of repo  variables
           run: |
-           echo "variable from shell environment : $job_switches"
+           echo "variable from shell environment : $vars.job_switches"
     packer:
      # if: ${{contains(env.job_switches, 'packer') }} 
       needs: validate
