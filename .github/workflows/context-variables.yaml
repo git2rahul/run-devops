@@ -1,0 +1,28 @@
+name: Parameters
+on: [workflow_dispatch]
+env:
+ env_var: ${{ vars.MESSAGE_REPO }}
+jobs:    
+    build:
+      name: Run Script
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - uses: actions/checkout@v1
+        - name: Script using  repo variable
+          run: .\script.ps1 -Parameter1 ${{ env.env_var }}
+          shell: pwsh
+        - name: Script using Environment variable
+          run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
+          shell: pwsh
+        - name: Testing eco of repo  variables
+          run: |
+           echo "variable from shell environment : $env_var"
+    publish:
+      needs: build
+      name: Publish Script
+      runs-on: ubuntu-latest
+      steps:
+        - name: Testing eco of repo  variables
+          run: |
+           echo "Publishing on environment : $env_var" 
