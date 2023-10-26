@@ -27,6 +27,7 @@ jobs:
         - name: Testing eco of repo  variables
           run: |
            echo "variable from shell environment : $env_var"
+           echo fromJSON(${{ vars.MESSAGE }})
            
     # This job is to setup and run packer to create managed image.       
     Setup-Run-Packer:
