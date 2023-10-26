@@ -30,4 +30,4 @@ jobs:
       steps:
         - name: Testing eco of repo  variables
           run: |
-           echo if: ${{contains(env.job_switches, 'push') }} 
+           echo if: ${{contains(env.job_switches, 'packer') }} 
