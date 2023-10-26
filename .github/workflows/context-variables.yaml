@@ -22,10 +22,11 @@ jobs:
           run: |
            echo "variable from shell environment : $env_var"
     publish:
+     # if: "!contains($job_switches, '[push]')"
       needs: build
       name: Publish Script
       runs-on: ubuntu-latest
       steps:
         - name: Testing eco of repo  variables
           run: |
-           echo "$job_switches"
+           echo "!contains($job_switches, '[push]')"
