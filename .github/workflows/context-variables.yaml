@@ -2,7 +2,8 @@ name: Context Variables
 on: [workflow_dispatch]
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
- job_switches: ${{ toJson('["push", "pull_request"]') }}
+ #job_switches: ${{ toJson('["push", "pull_request"]') }}
+ job_switches: 'push'
  
 jobs:    
     build:
@@ -29,4 +30,4 @@ jobs:
       steps:
         - name: Testing eco of repo  variables
           run: |
-           echo contains($job_switches, '[push]')
+           echo if: ${{ env.job_switches == 'push' }} 
