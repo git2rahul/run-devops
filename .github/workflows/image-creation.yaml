@@ -5,13 +5,14 @@ on: [workflow_dispatch]
 # This block is used to setup global environment variables shared across enitre workflow
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
- env_skip_jobs: 'true'
+ env_skip_jobs: '["push", "pull_request"]'
 
 # Jobs are listed to be run of GitHub runners. 
 jobs:
     # This job is to validate all the input values used in workflow.
     Validate-Inputs:
-      if: contains(fromJSON('["push", "pull_request"]'), 'push')
+ #     if: contains(fromJSON('["push", "pull_request"]'), 'push')
+      if: contains(fromJSON($env_skip_jobs), 'push')
       name: Validate Inputs
       runs-on: ubuntu-latest
       environment: development
