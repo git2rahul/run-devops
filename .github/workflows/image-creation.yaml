@@ -5,14 +5,11 @@ on: [workflow_dispatch]
 # This block is used to setup global environment variables shared across enitre workflow
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
- env_skip_jobs: '["push", "pull_request"]'
 
 # Jobs are listed to be run of GitHub runners. 
 jobs:
     # This job is to validate all the input values used in workflow.
     Validate-Inputs:
- #     if: contains(fromJSON('["push", "pull_request"]'), 'push')
-      if: contains( fromJSON(${{ env.env_skip_jobs }}) , 'push')
       name: Validate Inputs
       runs-on: ubuntu-latest
       environment: development
@@ -26,8 +23,7 @@ jobs:
           shell: pwsh
         - name: Testing eco of repo  variables
           run: |
-           echo "variable from shell environment : ${{ fromJSON(env.env_skip_jobs) }}"
-         #  echo "variable from shell environment : $env_var"
+           echo "variable from shell environment : $env_var"
            
     # This job is to setup and run packer to create managed image.       
     Setup-Run-Packer:
