@@ -2,6 +2,8 @@ name: Context Variables
 on: [workflow_dispatch]
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
+ job_switches: ${{ toJson('["push", "pull_request"]') }}
+ 
 jobs:    
     build:
       name: Run Script
@@ -26,4 +28,4 @@ jobs:
       steps:
         - name: Testing eco of repo  variables
           run: |
-           echo "Publishing on environment : $env_var" 
+           echo "$job_switches"
