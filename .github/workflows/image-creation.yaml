@@ -26,8 +26,8 @@ jobs:
           shell: pwsh
         - name: Testing eco of repo  variables
           run: |
-           echo "variable from shell environment : $env_var"
-           echo fromJSON(${{ vars.MESSAGE }})
+           echo "variable from shell environment : ${{ fromJSON(vars.MESSAGE) }}"
+         #  echo "variable from shell environment : $env_var"
            
     # This job is to setup and run packer to create managed image.       
     Setup-Run-Packer:
