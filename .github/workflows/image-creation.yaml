@@ -1,8 +1,14 @@
+# This is the name of workflow
 name: Package Image creator
 on: [workflow_dispatch]
+
+# This block is used to setup global environment variables shared across enitre workflow
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
-jobs:    
+
+# Jobs are listed to be run of GitHub runners. 
+jobs:
+    # This job is to validate all the input values used in workflow.
     Validate-Inputs:
       name: Validate Inputs
       runs-on: ubuntu-latest
@@ -18,6 +24,8 @@ jobs:
         - name: Testing eco of repo  variables
           run: |
            echo "variable from shell environment : $env_var"
+           
+    # This job is to setup and run packer to create managed image.       
     Setup-Run-Packer:
       needs: Validate-Inputs
       name: Run packer
@@ -27,6 +35,8 @@ jobs:
         - name: Rub packer
           run: |
            echo "Run packer on environment : $env_var" 
+
+    # This job is to do post validation on the image created as part of packer.  
     Post-Validation:
       needs: Setup-Run-Packer
       name: Validate Image
@@ -36,6 +46,8 @@ jobs:
         - name: Testing Image Validation Script
           run: |
            echo "Image Validation Script on environment : $env_var"
+
+    # This job is to publish the image in the Azure compute gallery.  
     Publish-image:
       needs: Post-Validation
       name: Publish Image
