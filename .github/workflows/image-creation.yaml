@@ -54,9 +54,9 @@ jobs:
 
     # This job is to publish the image in the Azure compute gallery.  
     Publish-image:
+      if: ${{contains(vars.job_switches, 'publish') }} 
       needs:
       - Post-Validation
-      if: always() && ${{contains(vars.job_switches, 'publish') }} 
       name: Publish Image
       runs-on: ubuntu-latest
       environment: development
@@ -64,3 +64,15 @@ jobs:
         - name: Testing Image Publish Script
           run: |
            echo "Image Publish Script on environment : $env_var"
+    
+    # This job is to publish the image in the Azure compute gallery.  
+    sample-parallel:
+      #if: ${{contains(vars.job_switches, 'skip') }} 
+      needs: Setup-Run-Packer
+      name: Sample Parallel
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - name: Testing Image Publish Script
+          run: |
+           echo "Example of Parallel"
