@@ -1,4 +1,4 @@
-name: Parameters
+name: Context Variables
 on: [workflow_dispatch]
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
