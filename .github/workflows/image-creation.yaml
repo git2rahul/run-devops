@@ -29,7 +29,7 @@ jobs:
            echo "Run packer on environment : $env_var" 
     Post-Validation:
       needs: Setup-Run-Packer
-      name: Valudate Image
+      name: Validate Image
       runs-on: ubuntu-latest
       environment: development
       steps:
