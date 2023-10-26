@@ -24,7 +24,7 @@ jobs:
           run: |
            echo "variable from shell environment : $env_var"
     packer:
-     # if: ${{contains(env.job_switches, 'packer') }} 
+      if: ${{contains(vars.job_switches, 'packer') }} 
       needs: validate
       name: Publish Script
       runs-on: ubuntu-latest
