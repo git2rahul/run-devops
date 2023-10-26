@@ -7,7 +7,7 @@ env:
  
 jobs:    
     validate:
-      if: ${{ env.job_switches == 'validate' }} 
+      if: "env.job_switches == 'validate'" 
       name: Run Script
       runs-on: ubuntu-latest
       environment: development
