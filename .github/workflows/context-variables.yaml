@@ -29,4 +29,4 @@ jobs:
       steps:
         - name: Testing eco of repo  variables
           run: |
-           echo "!contains($job_switches, '[push]')"
+           echo contains($job_switches, '[push]')
