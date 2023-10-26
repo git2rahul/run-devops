@@ -2,12 +2,12 @@ name: Context Variables
 on: [workflow_dispatch]
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
- job_switches: ${{ toJson('["validate", "packer","check","publish"]') }}
+ #job_switches: ${{ toJson('["validate", "packer","check","publish"]') }}
  #job_switches: 'check'
  
 jobs:    
     validate:
-      if: ${{ vars.MESSAGE == 'true' }}
+     # if: ${{ vars.job_switches == 'true' }}
       name: Run Script
       runs-on: ubuntu-latest
       environment: development
@@ -18,11 +18,11 @@ jobs:
           run: .\script.ps1 -Parameter1 ${{ env['env_var'] }}
           shell: pwsh
         - name: Script using Environment variable
-          run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
+          run: .\script.ps1 -Parameter1 ${{ vars.job_switches }}
           shell: pwsh
         - name: Testing eco of repo  variables
           run: |
-           echo "variable from shell environment : $env_var"
+           echo "variable from shell environment : $job_switches"
     packer:
      # if: ${{contains(env.job_switches, 'packer') }} 
       needs: validate
