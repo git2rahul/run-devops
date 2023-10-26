@@ -3,7 +3,7 @@ on: [workflow_dispatch]
 env:
  env_var: ${{ vars.MESSAGE_REPO }}
  #job_switches: ${{ toJson('["push", "pull_request"]') }}
- job_switches: 'push'
+ job_switches: 'check'
  
 jobs:    
     build:
