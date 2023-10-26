@@ -4,7 +4,7 @@ env:
  env_var: ${{ vars.MESSAGE_REPO }}
 jobs:    
     Validate-Inputs:
-      name: Run Script
+      name: Validate Inputs
       runs-on: ubuntu-latest
       environment: development
       steps:
@@ -29,7 +29,7 @@ jobs:
            echo "Run packer on environment : $env_var" 
     Post-Validation:
       needs: Setup-Run-Packer
-      name: Image Validation Script
+      name: Valudate Image
       runs-on: ubuntu-latest
       environment: development
       steps:
@@ -38,7 +38,7 @@ jobs:
            echo "Image Validation Script on environment : $env_var"
     Publish-image:
       needs: Post-Validation
-      name: Image Publish Script
+      name: Publish Image
       runs-on: ubuntu-latest
       environment: development
       steps:
