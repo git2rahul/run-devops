@@ -1,1 +1,47 @@
-
+name: Package Image creator
+on: [workflow_dispatch]
+env:
+ env_var: ${{ vars.MESSAGE_REPO }}
+jobs:    
+    Validate-Inputs:
+      name: Run Script
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - uses: actions/checkout@v1
+        - name: Script using  repo variable
+          run: .\script.ps1 -Parameter1 ${{ env.env_var }}
+          shell: pwsh
+        - name: Script using Environment variable
+          run: .\script.ps1 -Parameter1 ${{ vars.MESSAGE }}
+          shell: pwsh
+        - name: Testing eco of repo  variables
+          run: |
+           echo "variable from shell environment : $env_var"
+    Setup-Run-Packer:
+      needs: Validate-Inputs
+      name: Run packer
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - name: Rub packer
+          run: |
+           echo "Run packer on environment : $env_var" 
+    Post-Validation:
+      needs: Setup-Run-Packer
+      name: Image Validation Script
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - name: Testing Image Validation Script
+          run: |
+           echo "Image Validation Script on environment : $env_var"
+    Publish-image:
+      needs: Post-Validation
+      name: Image Publish Script
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - name: Testing Image Publish Script
+          run: |
+           echo "Image Publish Script on environment : $env_var"
