@@ -12,7 +12,7 @@ jobs:
     # This job is to validate all the input values used in workflow.
     Validate-Inputs:
  #     if: contains(fromJSON('["push", "pull_request"]'), 'push')
-      if: contains( ${{ fromJSON(env.env_skip_jobs) }}, 'push')
+      if: contains( ${{ fromJSON(${{ env.env_skip_jobs }}) }}, 'push')
       name: Validate Inputs
       runs-on: ubuntu-latest
       environment: development
