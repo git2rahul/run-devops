@@ -12,7 +12,7 @@ jobs:
         - uses: actions/checkout@v1
         - name: Script
           run: |
-            $stage_result =./resulttesting.ps1
+            $stage_result = ./resulttesting.ps1
           shell: pwsh
         - name: Testing eco of repo  variables
           run: |
