@@ -2,7 +2,7 @@
 $jsonFilePath = "packer-file.json"
 
 Function  Configurationvalidation($path) {
-  return false
+  return 'failure'
 }
 
 Configurationvalidation($jsonFilePath )
