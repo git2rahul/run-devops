@@ -12,3 +12,6 @@ if ($ExitCode) {
     exit 5
 }
 
+$Env:MyVariable
+$Parameter1
+$PSVersionTable
