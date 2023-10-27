@@ -11,12 +11,8 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          run: |
-            $stage_result = ./resulttesting.ps1
+          run: ./resulttesting.ps1
           shell: pwsh
-        - name: Testing eco of repo  variables
-          run: |
-           echo "result : $stage_result"
-
+        
 
   # run: ./script.ps1 -ExitCode
