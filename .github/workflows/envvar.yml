@@ -15,7 +15,7 @@ jobs:
           run: >-
             echo "Val2=Moe" >> $GITHUB_OUTPUT
         - name: Print
-          id: Print- within steps
+          id: Print within steps
           run: |
                echo "Val2: ${{ steps.Print.outputs.Val2 }}"
     job1:
