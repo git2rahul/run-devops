@@ -12,3 +12,6 @@ jobs:
         - name: Script
           run: ./script.ps1 -Parameter1 "Setup Parameter"
           shell: pwsh
+        - name: Print
+          run: |
+           echo "variable from shell environment : $MyVariable"
