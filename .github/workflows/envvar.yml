@@ -14,11 +14,14 @@ jobs:
           id: set-Val2
           run: >-
             echo "Val2=Moe" >> $GITHUB_OUTPUT
+        - name: Print
+          run: |
+               echo "Val2: ${{ needs.build.outputs.var_Val2 }}"
     job1:
         runs-on: ubuntu-latest
         needs: [build]
         steps:
-          - name: Print
+          - name: Print2
             run: |
                echo "Val2: ${{ needs.build.outputs.var_Val2 }}"
     job2:
