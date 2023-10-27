@@ -18,6 +18,7 @@ jobs:
           run: echo "Hello"
           shell: pwsh
     build1:
+      needs: build
       name: Run Script1
       runs-on: ubuntu-latest
       steps:
