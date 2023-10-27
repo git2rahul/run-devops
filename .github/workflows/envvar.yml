@@ -17,3 +17,14 @@ jobs:
         - name: Hello world Script
           run: |
            echo "Hello world"
+    C:
+      needs: 
+      - A
+      - B
+      if: 1 == 2
+      name: Last task
+      runs-on: ubuntu-latest
+      steps:
+        - name: Last task Script
+          run: |
+           echo "Last task"
