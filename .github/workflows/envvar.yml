@@ -24,4 +24,4 @@ jobs:
               echo "NODE_VERSION=$MyVariable" >>  $GITHUB_OUTPUT
           - name: Print
             run: |
-              echo "${{ steps.step1.outputs.NODE_VERSION }}"
+              echo $GITHUB_OUTPUT
