@@ -7,24 +7,17 @@ jobs:
         MyVariable: 'Hello, World'      
       name: Run Script
       runs-on: ubuntu-latest
+      outputs:
+        var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
-        - uses: actions/checkout@v1
-        - name: Script
-          run: ./script.ps1 -Parameter1 "Setup Parameter"
-          shell: pwsh
-        - name: Print
-          run: |
-           echo "variable from shell environment : $MyVariable"
+        - name: Val2
+          id: set-Val2
+          run: >-
+            echo "Val2=Moe" >> GITHUB_OUTPUT
     job1:
         runs-on: ubuntu-latest
-        outputs:
-          var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
+        needs: [build]
         steps:
-          - name: Val2
-            id: set-Val2
-            run: >-
-              echo "Val2=Moe" >> GITHUB_OUTPUT
-            shell: bash
           - name: Print
             run: |
-               echo "Val2: ${{ needs.job1.outputs.var_Val2 }}"
+               echo "Val2: ${{ needs.build.outputs.var_Val2 }}"
