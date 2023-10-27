@@ -11,8 +11,11 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          run: echo ./resulttesting.ps1
+          run: ./resulttesting.ps1
+          continue-on-error: true
           shell: pwsh
-        
+        - name: Script1
+          run: echo "Hello"
+          shell: pwsh
 
   # run: ./script.ps1 -ExitCode
