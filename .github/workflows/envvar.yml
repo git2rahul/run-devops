@@ -16,6 +16,8 @@ jobs:
           run: |
            echo "variable from shell environment : $MyVariable"
     job1:
+        env:
+          GITHUB_OUTPUT: 'Dummy'
         runs-on: ubuntu-latest
         # Map a step output to a job output
         outputs:
@@ -27,4 +29,4 @@ jobs:
           - id: step2
             run: echo "test=world" >> "$GITHUB_OUTPUT"
           - id: step3
-            run: echo "$OUTPUT1 $OUTPUT2"
+            run: echo "${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}"
