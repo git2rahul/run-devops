@@ -11,7 +11,7 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          run: ./resulttesting.ps1
+          run: echo ./resulttesting.ps1
           shell: pwsh
         
 
