@@ -42,7 +42,7 @@ jobs:
         steps:
          - name: "Run Powershell"
            id: "my_step"
-           run: ./resulttesting.ps1 -
+           run: ./resulttesting.ps1
          - name: "Check result of powershell"
            run: |
                 echo "${{steps.my_step.outputs.script-output}}"
