@@ -23,8 +23,8 @@ jobs:
           - name: Val2
             id: set-Val2
             run: >-
-              echo "Val2=Moe" >> $env:GITHUB_OUTPUT
-            shell: pwsh
+              echo "Val2=Moe" >> GITHUB_OUTPUT
+            shell: bash
           - name: Print
             run: |
                echo "Val2: ${{ needs.job1.outputs.var_Val2 }}"
