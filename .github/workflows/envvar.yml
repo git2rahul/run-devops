@@ -2,13 +2,18 @@ name: Environment Variables
 on: [workflow_dispatch]
 
 jobs:
-    build:
-      name: Run Script
+    A:
+      name: Parallel run
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v1
-        - name: Script
-          run: ./script.ps1
-          shell: pwsh
-          env:
-            MyVariable: 'Hello, World'
+        - name: Parallel run  Script
+          run: |
+           echo "Example of Parallel"
+    B:
+      needs: A
+      name: Hello world
+      runs-on: ubuntu-latest
+      steps:
+        - name: Hello world Script
+          run: |
+           echo "Hello world"
