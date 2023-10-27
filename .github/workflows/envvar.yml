@@ -17,11 +17,14 @@ jobs:
            echo "variable from shell environment : $MyVariable"
     job1:
         runs-on: ubuntu-latest
-        # Map a step output to a job output
+        outputs:
+          var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
         steps:
-          - id: step1
+          - name: Val2
+            id: set-Val2
             run: >-
-              echo "NODE_VERSION=$MyVariable" >>  $GITHUB_OUTPUT
+              echo "Val2=Moe" >> $env:GITHUB_OUTPUT
+            shell: pwsh
           - name: Print
             run: |
-              echo $GITHUB_OUTPUT
+               echo "Val2: ${{ needs.job1.outputs.var_Val2 }}"
