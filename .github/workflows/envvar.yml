@@ -21,7 +21,7 @@ jobs:
         steps:
           - id: step1
             run: >-
-              echo "::set-output name=NODE_VERSION:: $MyVariable"
+              echo "NODE_VERSION=$MyVariable" >>  $GITHUB_OUTPUT
           - name: Print
             run: |
               echo "${{ steps.step1.outputs.NODE_VERSION }}"
