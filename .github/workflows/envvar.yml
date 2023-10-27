@@ -8,7 +8,7 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          run: ./script.ps1
+          run: ./script.ps1 -Parameter1 "Setup Parameter"
           shell: pwsh
           env:
             MyVariable: 'Hello, World'
