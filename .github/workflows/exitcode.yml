@@ -17,5 +17,13 @@ jobs:
         - name: Script1
           run: echo "Hello"
           shell: pwsh
+    build1:
+      name: Run Script1
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - name: Script1
+          run: echo "Hello"
+          shell: pwsh
 
   # run: ./script.ps1 -ExitCode
