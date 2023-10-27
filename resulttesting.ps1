@@ -1,1 +1,4 @@
-return 'Failure'
+function check()
+{
+  return false
+}
