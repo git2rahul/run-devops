@@ -1,6 +1,9 @@
 name: Exit Code
 on: [workflow_dispatch]
 
+env:
+ stage_result: 'True' 
+
 jobs:
     build:
       name: Run Script
@@ -8,8 +11,12 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          run: ./resulttesting.ps1
-          # run: ./script.ps1 -ExitCode
+          run: |
+            $stage_result =./resulttesting.ps1
           shell: pwsh
+        - name: Testing eco of repo  variables
+          run: |
+           echo "result : $stage_result"
 
-         
+
+  # run: ./script.ps1 -ExitCode
