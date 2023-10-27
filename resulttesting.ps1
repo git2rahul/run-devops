@@ -1,6 +1,5 @@
-Function check()
-{
+Function Check() {
   return false
 }
 
-check()
+Check()
