@@ -3,7 +3,7 @@ $jsonFilePath = "packer-file.json"
 
 Function  Configurationvalidation($path) {
   Write-Host "Wrting to the host" -ForegroundColor DarkBlue -BackgroundColor White
-  return true
+  return false
 }
 
 Configurationvalidation($jsonFilePath )
