@@ -15,6 +15,7 @@ jobs:
           run: >-
             echo "Val2=Moe" >> $GITHUB_OUTPUT
         - name: Print
+          id: Print-Val2
           run: |
                echo "Val2: ${{ needs.build.outputs.var_Val2 }}"
     job1:
