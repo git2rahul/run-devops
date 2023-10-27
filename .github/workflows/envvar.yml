@@ -25,8 +25,10 @@ jobs:
           output2: ${{ steps.step2.outputs.test }}
         steps:
           - id: step1
-            run: echo "test=hello" >> "$GITHUB_OUTPUT"
+            run: echo "test=hello" >> "$output1"
           - id: step2
-            run: echo "test=world" >> "$GITHUB_OUTPUT"
+            run: echo "test=world" >> "$output2"
           - id: step3
             run: echo "${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}"
+          - id: step4
+            run: echo "${{output1}} ${{output2}}"
