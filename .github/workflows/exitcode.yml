@@ -8,5 +8,8 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          run: ./script.ps1 -ExitCode
+          run: ./resulttesting.ps1
+          # run: ./script.ps1 -ExitCode
           shell: pwsh
+
+         
