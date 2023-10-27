@@ -13,7 +13,7 @@ jobs:
         - name: Val2
           id: set-Val2
           run: >-
-            echo Val2=Moe >> %GITHUB_OUTPUT%
+            echo "Val2=Moe" >> $GITHUB_OUTPUT
     job1:
         runs-on: ubuntu-latest
         needs: [build]
@@ -21,3 +21,17 @@ jobs:
           - name: Print
             run: |
                echo "Val2: ${{ needs.build.outputs.var_Val2 }}"
+    job2:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Chekout
+            uses: actions/checkout@v4
+          - name: write
+            shell: pwsh
+            run: |
+              echo "This is my output" >> $GITHUB_OUTPUT
+          - name: read
+            shell: pwsh
+            run: |
+              $output = Get-Content $GITHUB_OUTPUT
+              Write-Output "This output is : $output" 
