@@ -5,8 +5,8 @@ param(
 )
 
 Function SetValue($Par) {
-    $Par = "Test $Par"
-    Write-host $Par
+    $Parameter1 = "In Side SetValues Test $Par"
+    Write-host $Parameter1
 }
 
 if ($Fail) {
