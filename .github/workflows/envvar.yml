@@ -28,14 +28,12 @@ jobs:
     job2:
         runs-on: ubuntu-latest
         steps:
-          - name: Chekout
-            uses: actions/checkout@v4
-          - name: write
-            shell: pwsh
-            run: |
-              echo "This is my output" >> $GITHUB_OUTPUT
-          - name: read
-            shell: pwsh
-            run: |
-              $output = Get-Content $GITHUB_OUTPUT
-              Write-Output "This output is : $output" 
+         - name: "Example output creation"
+           id: "my_step"
+           run: |
+            my_var="Hello World !"
+            echo "Output [$my_var]"
+            echo "my_var=$my_var" >> $GITHUB_OUTPUT    
+         - name: "Example output call between steps"
+           run: |
+                echo "Output [${{steps.my_step.outputs.my_var}}]"
