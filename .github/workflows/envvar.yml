@@ -3,6 +3,8 @@ on: [workflow_dispatch]
 
 jobs:
     build:
+      env:
+        MyVariable: 'Hello, World'      
       name: Run Script
       runs-on: ubuntu-latest
       steps:
@@ -10,5 +12,3 @@ jobs:
         - name: Script
           run: ./script.ps1 -Parameter1 "Setup Parameter"
           shell: pwsh
-          env:
-            MyVariable: 'Hello, World'
