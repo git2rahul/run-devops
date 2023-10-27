@@ -11,11 +11,11 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          run: ./resulttesting.ps1
-          #continue-on-error: true
+          run: ./resulttesting.ps1 -OutputVariable my-output-variable
+          continue-on-error: true
           shell: pwsh
         - name: Script1
-          run: echo "Hello"
+          run: echo ${{ steps.build.outputs.my-output-variable}}
           shell: pwsh
     build1:
       needs: build
