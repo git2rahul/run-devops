@@ -1,4 +1,6 @@
-function check()
+Function check()
 {
   return false
 }
+
+check()
