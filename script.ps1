@@ -5,8 +5,7 @@ param(
 )
 
 Function SetValue($Par) {
-    $Env:MyVariable = "In Side SetValues Test $Par"
-    Write-host $Env:MyVariable
+    $Env:MyVariable = "In Side SetValues Test $Par $Env:MyVariable"
 }
 
 if ($Fail) {
