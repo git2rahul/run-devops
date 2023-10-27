@@ -13,7 +13,7 @@ jobs:
         - name: Val2
           id: set-Val2
           run: >-
-            echo "Val2=Moe" >> GITHUB_OUTPUT
+            echo Val2=Moe >> %GITHUB_OUTPUT%
     job1:
         runs-on: ubuntu-latest
         needs: [build]
