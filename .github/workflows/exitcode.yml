@@ -18,7 +18,7 @@ jobs:
           continue-on-error: true
           shell: pwsh
         - name: Script block result
-          run: echo $env.stage_result
+          run: echo "$env.stage_result"
           shell: pwsh
     build1:
       needs: build
