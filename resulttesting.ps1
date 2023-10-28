@@ -3,7 +3,7 @@ $jsonFilePath = "packer-file.json"
 
 Function  Configurationvalidation($path) {
   Write-Host "Wrting to the host" 
-  return "result=Testing"
+  return "Testing"
 }
 
 Configurationvalidation($jsonFilePath )
