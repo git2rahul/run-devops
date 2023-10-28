@@ -15,7 +15,7 @@ jobs:
           id: set-Val2
           run: |
               Invoke-Command -ScriptBlock {
-              ./resulttesting.ps1 
+               $out = ./resulttesting.ps1 
               }
               echo "Val2=Moe" >> $GITHUB_OUTPUT
           shell: pwsh
