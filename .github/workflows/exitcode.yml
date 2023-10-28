@@ -14,10 +14,10 @@ jobs:
         - uses: actions/checkout@v1
         - name: Executing script block
           run: |
-              $stage_result = Invoke-Command -ScriptBlock {
+              $env.stage_result = Invoke-Command -ScriptBlock {
                ./resulttesting.ps1 
               }
-              echo $stage_result
+              echo $env.stage_result
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
