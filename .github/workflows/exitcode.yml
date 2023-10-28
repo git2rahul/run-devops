@@ -12,13 +12,15 @@ jobs:
         - uses: actions/checkout@v1
         - name: Executing script block
           run: |
-            $result = Invoke-Command -ScriptBlock {
+             $result = Invoke-Command -ScriptBlock {
              ./resulttesting.ps1 
-            }
+             $stage_result:$result
+             }
           continue-on-error: true
           shell: pwsh
         - name: Script block result
-          run: echo "$env.stage_result"
+          run: |
+           echo "variable from shell environment : $stage_result"
           shell: pwsh
     build1:
       needs: build
