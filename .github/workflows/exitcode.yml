@@ -12,9 +12,7 @@ jobs:
         - uses: actions/checkout@v1
         - name: script
           run: |
-           $Parameter1: "Hello"
-           ./script.ps1 -OutputVariable Parameter1
-           echo "${Parameter1}" 
+           ./script.ps1 -Parameter1 $stage_result
           continue-on-error: true
           shell: pwsh
         - name: Script1
