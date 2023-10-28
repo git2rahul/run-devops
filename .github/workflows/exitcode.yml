@@ -12,10 +12,9 @@ jobs:
         - uses: actions/checkout@v1
         - name: Executing script block
           run: |
-           Invoke-Command -ScriptBlock {
+            $env:stage_result = Invoke-Command -ScriptBlock {
              ./resulttesting.ps1 
-            #$env:stage_result = Get-Content ./resulttesting.ps1
-           }
+            }
           continue-on-error: true
           shell: pwsh
         - name: Script block result
@@ -30,15 +29,6 @@ jobs:
         - name: Script1
           run: echo "Hello"
           shell: pwsh
-    job3:
-        name: Run Script2
-        runs-on: ubuntu-latest
-        steps:
-           - uses: actions/checkout@v1
-           - name: script
-             run: ./resulttesting.ps1
-       #  - name: "Check result of powershell"
-        #   run: |
-         #       echo "${{steps.my_step.outputs.script-output}}"
+    
 
   # run: ./script.ps1 -ExitCode
