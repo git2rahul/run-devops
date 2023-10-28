@@ -13,7 +13,7 @@ jobs:
         - name: Executing script block
           run: |
            Invoke-Command -ScriptBlock {
-            env.stage_result = ${{ ./resulttesting.ps1 }}
+             ./resulttesting.ps1 
             #$env:stage_result = Get-Content ./resulttesting.ps1
            }
           continue-on-error: true
