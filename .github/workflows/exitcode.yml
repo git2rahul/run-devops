@@ -18,7 +18,7 @@ jobs:
              $result = Invoke-Command -ScriptBlock {
                ./resulttesting.ps1 
               }
-              echo $stage_result
+              echo "variable from shell environment : $stage_result"
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
