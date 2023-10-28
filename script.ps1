@@ -1,7 +1,7 @@
 param(
     [Switch]$Fail, 
     [Switch]$ExitCode, 
-    $Parameter1
+    [ref]$Parameter1
 )
 
 Function SetValue([ref]$Par) {
@@ -16,7 +16,7 @@ if ($ExitCode) {
     exit 5
 }
 
-SetValue($Parameter1)
+SetValue([ref]$Parameter1)
 
 $Env:MyVariable
 $Parameter1
