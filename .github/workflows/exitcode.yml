@@ -11,7 +11,7 @@ jobs:
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
-        - uses: actions/checkout@v1
+       # - uses: actions/checkout@v1
         - name: Executing script block
           id: set-Val2
           run: |
