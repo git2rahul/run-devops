@@ -16,14 +16,13 @@ jobs:
           id: set-Val2
           run: |
               stage_result="MyTestResourceGroup"
-              ${{ env.stage_result=Group }}
               echo "Val2=$stage_result" >> $GITHUB_OUTPUT
           #continue-on-error: true
       #    shell: pwsh
         - name: Script block result
           run: |
                echo "Val2: ${{ steps.set-Val2.outputs.Val2 }}"
-               echo "variable from shell environment : $env.stage_result"
+               echo "variable from shell environment :  ${{ env.stage_result}}"
           shell: pwsh
       
 
