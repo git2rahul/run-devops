@@ -1,10 +1,10 @@
 param(
     [Switch]$Fail, 
     [Switch]$ExitCode, 
-    [ref]$Parameter1
+    $Parameter1
 )
 
-Function SetValue([ref]$Par) {
+Function SetValue($Par) {
     $Par = "In Side SetValues Test $Par $Env:MyVariable"
 }
 
@@ -16,7 +16,7 @@ if ($ExitCode) {
     exit 5
 }
 
-SetValue([ref]$Parameter1)
+SetValue($Parameter1)
 
 $Env:MyVariable
 $Parameter1
