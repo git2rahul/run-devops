@@ -47,10 +47,8 @@ jobs:
           echo  your project.
       - name: Script
         id: "my_step"
-        #run: >- 
-        run: |
-           ./resulttesting.ps1
-           >> $GITHUB_OUTPUT
+        run: >- 
+           ./resulttesting.ps1 >> $GITHUB_OUTPUT
         shell: pwsh
 
       - name: "Check result of powershell"
