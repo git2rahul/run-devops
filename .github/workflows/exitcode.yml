@@ -11,11 +11,11 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: script
-          run: ./resulttesting.ps1 -Parameter1 ${{ env.stage_result }}
+          run: ./script.ps1 -Parameter1 ${{ env.stage_result }}
           continue-on-error: true
           shell: pwsh
         - name: Script1
-          run: echo $stage_result
+          run: echo "$stage_result"
           shell: pwsh
     build1:
       needs: build
