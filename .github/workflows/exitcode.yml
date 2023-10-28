@@ -15,12 +15,9 @@ jobs:
         - name: Executing script block
           id: set-Val2
           run: |
-              $result = Invoke-Command -ScriptBlock {
-               ./resulttesting.ps1 
-              }
+              $result = 'Testing'
               echo "Val2=$result" >> $GITHUB_OUTPUT
               echo  ${{contains($result, 'Testing') }} 
-            #  echo "Val2=$result" >> $GITHUB_OUTPUT
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
