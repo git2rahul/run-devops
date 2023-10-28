@@ -32,7 +32,7 @@ jobs:
         steps:
            - uses: actions/checkout@v1
            - name: script
-             run: ./resulttesting.ps1 -OutputVariable my-output-variable
+             run: ./resulttesting.ps1
        #  - name: "Check result of powershell"
         #   run: |
          #       echo "${{steps.my_step.outputs.script-output}}"
