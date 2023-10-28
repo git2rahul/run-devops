@@ -4,8 +4,8 @@ param(
     $Parameter1
 )
 
-Function SetValue($Par) {
-    $Env:MyVariable = "In Side SetValues Test $Par $Env:MyVariable"
+Function SetValue([ref]$Par) {
+    $Par = "In Side SetValues Test $Par $Env:MyVariable"
 }
 
 if ($Fail) {
