@@ -15,8 +15,9 @@ jobs:
         - name: Executing script block
           id: set-Val2
           run: |
-              stage_result="MyTestResourceGroup"
-              echo "Val2=$stage_result" >> $GITHUB_OUTPUT
+              #stage_result="MyTestResourceGroup"
+              #echo "Val2=$stage_result" >> $GITHUB_OUTPUT
+              echo "Val2=TETE" >> $GITHUB_OUTPUT
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
