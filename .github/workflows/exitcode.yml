@@ -16,7 +16,8 @@ jobs:
           run: |
               $stage_result = Invoke-Command -ScriptBlock {
                ./resulttesting.ps1 
-              } 
+              }
+              echo $stage_result
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
