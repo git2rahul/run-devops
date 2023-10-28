@@ -11,7 +11,9 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: script
-          run: ./script.ps1 -Parameter1 ([ref]$env.stage_result)
+          run: |
+           ./script.ps1 -OutputVariable variable
+           echo "${variable}" 
           continue-on-error: true
           shell: pwsh
         - name: Script1
