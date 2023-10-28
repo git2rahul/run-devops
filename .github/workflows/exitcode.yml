@@ -11,18 +11,17 @@ jobs:
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
-        - name: Val2
-          id: set-Val2
+        - uses: actions/checkout@v1
+        - name: Executing script block
           run: |
-              Invoke-Command -ScriptBlock {
-               $out = ./resulttesting.ps1 
-              }
-              echo "Val2=Moe" >> $GITHUB_OUTPUT
+            $result = Invoke-Command -ScriptBlock {
+             ./resulttesting.ps1 
+            }
+          #continue-on-error: true
           shell: pwsh
-        - name: Print within steps
-          id: Print
-          run: |
-             echo "Val2: ${{ steps.set-Val2.outputs.Val2 }}"
+        - name: Script block result
+          run: echo $env.stage_result
+          shell: pwsh
       
 
   # run: ./script.ps1 -ExitCode
