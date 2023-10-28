@@ -15,12 +15,9 @@ jobs:
         - name: Executing script block
           id: set-Val2
           run: |
-             $result = Invoke-Command -ScriptBlock {
-               ./resulttesting.ps1 
-              }
               echo "variable from shell environment : $stage_result"
           #continue-on-error: true
-          shell: pwsh
+         # shell: pwsh
         - name: Script block result
           run: |
                echo "Val2: ${{ steps.set-Val2.outputs.Val2 }}"
