@@ -8,13 +8,16 @@ jobs:
     build:
       name: Run Script
       runs-on: ubuntu-latest
+      outputs:
+        var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
         - uses: actions/checkout@v1
         - name: Executing script block
+          id: set-Val2
           run: |
              $result = Invoke-Command -ScriptBlock {
              ./resulttesting.ps1 
-              stage_result: ${{ result }}
+              echo "Val2=Moe" >> $GITHUB_OUTPUT
              }
           continue-on-error: true
           shell: pwsh
