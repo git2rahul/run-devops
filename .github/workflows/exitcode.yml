@@ -14,7 +14,10 @@ jobs:
         - name: Val2
           id: set-Val2
           run: >-
-            echo "Val2=Moe" >> $GITHUB_OUTPUT
+              $result = Invoke-Command -ScriptBlock {
+              ./resulttesting.ps1 
+              }
+              echo "Val2=Moe" >> $GITHUB_OUTPUT
         - name: Print within steps
           id: Print
           run: |
