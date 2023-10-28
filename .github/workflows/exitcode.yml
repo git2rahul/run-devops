@@ -17,7 +17,6 @@ jobs:
           run: |
               $result = 'Testing'
               echo "Val2=$result" >> $GITHUB_OUTPUT
-              echo  ${{contains($result, 'Testing') }} 
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
