@@ -20,7 +20,7 @@ jobs:
           #  Get-Variable my_var* -ValueOnly >> $GITHUB_OUTPUT 
             
           #continue-on-error: true
-       #   shell: pwsh
+          shell: pwsh
         - name: Script block result
           run: |
                echo "Val2: ${{ steps.set-Val2.outputs.Val2 }}"
