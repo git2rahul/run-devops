@@ -11,26 +11,14 @@ jobs:
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
-        - uses: actions/checkout@v1
-        - name: Executing script block
+        - name: Val2
           id: set-Val2
           run: >-
-             echo "Val2=Moe" >> $GITHUB_OUTPUT
-          continue-on-error: true
-          shell: pwsh
-        - name: Script block result
+            echo "Val2=Moe" >> $GITHUB_OUTPUT
+        - name: Print within steps
+          id: Print
           run: |
-           echo "Val2: ${{ steps.set-Val2.outputs.var_Val2 }}"
-          shell: pwsh
-    build1:
-      needs: build
-      name: Run Script1
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v1
-        - name: Script1
-          run: echo "Hello"
-          shell: pwsh
-    
+             echo "Val2: ${{ steps.set-Val2.outputs.Val2 }}"
+      
 
   # run: ./script.ps1 -ExitCode
