@@ -14,7 +14,7 @@ jobs:
           run: |
              $result = Invoke-Command -ScriptBlock {
              ./resulttesting.ps1 
-             $stage_result:$result
+              stage_result: ${{ result }}
              }
           continue-on-error: true
           shell: pwsh
