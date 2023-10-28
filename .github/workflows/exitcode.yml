@@ -17,8 +17,7 @@ jobs:
           run: |
             Set-Variable -Name "my_var" -Value "Hello World !"
             Get-Variable my_var* -ValueOnly
-            echo $my_var
-            #echo "Val2=$my_var" >> $GITHUB_OUTPUT    
+            echo "Val2=$my_var" >> $GITHUB_OUTPUT   
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
