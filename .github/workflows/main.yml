@@ -48,7 +48,7 @@ jobs:
       - name: Script
         id: "my_step"
         #run: >- 
-        run: ./resulttesting.ps1 >> text.txt
+        run: my_var= ./resulttesting.ps1 >> $GITHUB_OUTPUT
          # echo "my_var= ${{./resulttesting.ps1 }}" >> $GITHUB_OUTPUT
         shell: pwsh
 
