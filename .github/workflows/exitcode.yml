@@ -18,7 +18,7 @@ jobs:
               $result = Invoke-Command -ScriptBlock {
                ./resulttesting.ps1 
               }
-              echo "Val2=$result"
+              echo "Val2=$result" >> $GITHUB_OUTPUT
             #  echo "Val2=$result" >> $GITHUB_OUTPUT
           #continue-on-error: true
           shell: pwsh
