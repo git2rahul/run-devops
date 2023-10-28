@@ -40,10 +40,9 @@ jobs:
     job3:
         runs-on: ubuntu-latest
         steps:
-         - name: "Run Powershell"
-           id: "my_step1"
-           run: .\script.ps1 -Parameter1 "Hello"
-           shell: pwsh
+            - uses: actions/checkout@v1
+            - name: script
+              run: ./resulttesting.ps1 -OutputVariable my-output-variable
        #  - name: "Check result of powershell"
         #   run: |
          #       echo "${{steps.my_step.outputs.script-output}}"
