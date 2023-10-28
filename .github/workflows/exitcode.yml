@@ -15,9 +15,10 @@ jobs:
         - name: Executing script block
           id: set-Val2
           run: |
-             Set-Variable -Name "my_var" -Value "Hello World !"
-             Get-Variable my_var* -ValueOnly  
-             echo "Val2=test11" >> $GITHUB_OUTPUT   
+             $result = Invoke-Command -ScriptBlock {
+               ./resulttesting.ps1 
+              }
+              echo $result
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
