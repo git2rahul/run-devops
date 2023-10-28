@@ -15,9 +15,9 @@ jobs:
         - name: Executing script block
           id: set-Val2
           run: |
-            my_var="Hello World !"
-            echo "Output [$my_var]"
-            echo "Val2=$my_var" >> $GITHUB_OUTPUT    
+            Set-Variable -Name "my_var" -Value "Hello World !"
+            echo Get-Variable -Name "my_var"
+            #echo "Val2=$my_var" >> $GITHUB_OUTPUT    
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
