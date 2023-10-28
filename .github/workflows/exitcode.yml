@@ -20,7 +20,7 @@ jobs:
           shell: pwsh
         - name: Script block result
           run: |
-           echo "Val2: ${{ steps.set-Val2.outputs.Val2 }}"
+           echo "Val2: ${{ steps.set-Val2.outputs.var_Val2 }}"
           shell: pwsh
     build1:
       needs: build
