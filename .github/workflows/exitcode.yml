@@ -16,7 +16,7 @@ jobs:
           id: set-Val2
           run: |
               stage_result="MyTestResourceGroup"
-              ${{ env.stage_result="Group" }}
+              ${{ env.stage_result=Group }}
               echo "Val2=$stage_result" >> $GITHUB_OUTPUT
           #continue-on-error: true
       #    shell: pwsh
