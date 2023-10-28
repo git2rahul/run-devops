@@ -49,9 +49,8 @@ jobs:
         id: "my_step"
         #run: >- 
         run: |
-          {
            ./resulttesting.ps1
-          } >> $GITHUB_OUTPUT
+           >> $GITHUB_OUTPUT
         shell: pwsh
 
       - name: "Check result of powershell"
