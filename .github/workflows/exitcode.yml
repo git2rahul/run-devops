@@ -15,7 +15,7 @@ jobs:
         - name: Executing script block
           id: set-Val2
           run: |
-              env:stage_result="MyTestResourceGroup"
+              stage_result="MyTestResourceGroup"
               echo "Val2=$stage_result" >> $GITHUB_OUTPUT
           #continue-on-error: true
       #    shell: pwsh
