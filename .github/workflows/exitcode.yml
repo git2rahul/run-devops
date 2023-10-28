@@ -26,5 +26,15 @@ jobs:
         - name: Script1
           run: echo "Hello"
           shell: pwsh
+    job3:
+        name: Run Script2
+        runs-on: ubuntu-latest
+        steps:
+           - uses: actions/checkout@v1
+           - name: script
+             run: ./resulttesting.ps1 -OutputVariable my-output-variable
+       #  - name: "Check result of powershell"
+        #   run: |
+         #       echo "${{steps.my_step.outputs.script-output}}"
 
   # run: ./script.ps1 -ExitCode
