@@ -48,10 +48,9 @@ jobs:
       - name: Script
         id: "my_step"
         #run: >- 
-        run: my_var= ./resulttesting.ps1 >> $GITHUB_OUTPUT
-         # echo "my_var= ${{./resulttesting.ps1 }}" >> $GITHUB_OUTPUT
+        run:  ./resulttesting.ps1 >> $GITHUB_OUTPUT
         shell: pwsh
 
       - name: "Check result of powershell"
         run: |
-         echo "${{steps.my_step.outputs.my_var}}"
+         echo "${{steps.my_step.outputs}}"
