@@ -40,4 +40,11 @@ jobs:
       - name: Script
         run: ./script.ps1
         shell: pwsh
-      
+
+       # Runs a set of commands using the runners shell
+      - name: Run 1
+        run: |
+          echo  your project.
+      - name: Script
+        run: ./resulttesting.ps1
+        shell: pwsh
