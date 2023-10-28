@@ -18,6 +18,7 @@ jobs:
               ./resulttesting.ps1 
               }
               echo "Val2=Moe" >> $GITHUB_OUTPUT
+          shell: pwsh
         - name: Print within steps
           id: Print
           run: |
