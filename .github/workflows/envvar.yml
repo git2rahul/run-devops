@@ -37,12 +37,4 @@ jobs:
          - name: "Example output call between steps"
            run: |
                 echo "Output [${{steps.my_step.outputs.my_var}}]"
-    job3:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v1
-            - name: script
-              run: ./resulttesting.ps1 -OutputVariable my-output-variable
-       #  - name: "Check result of powershell"
-        #   run: |
-         #       echo "${{steps.my_step.outputs.script-output}}"
+   
