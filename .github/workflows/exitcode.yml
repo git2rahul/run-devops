@@ -15,7 +15,7 @@ jobs:
         - name: Executing script block
           id: set-Val2
           run: |
-              result = Invoke-Command -ScriptBlock {
+              $result = Invoke-Command -ScriptBlock {
                ./resulttesting.ps1 
               }
               echo "Val2=$result" >> $GITHUB_OUTPUT
