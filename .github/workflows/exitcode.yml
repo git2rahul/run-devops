@@ -10,12 +10,15 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v1
-        - name: script
+        - name: Executing script block
           run: |
-           ./script.ps1 -Parameter1 $stage_result
+           Invoke-Command -ScriptBlock {
+            $output = Get-Content ./resulttesting.ps1
+            $env:stage_result = $output
+           }
           continue-on-error: true
           shell: pwsh
-        - name: Script1
+        - name: Script block result
           run: echo "$stage_result"
           shell: pwsh
     build1:
