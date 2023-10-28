@@ -13,7 +13,7 @@ jobs:
       steps:
         - name: Val2
           id: set-Val2
-          run: >-
+          run: |
               $result = Invoke-Command -ScriptBlock {
               ./resulttesting.ps1 
               }
