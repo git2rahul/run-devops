@@ -22,7 +22,7 @@ jobs:
         - name: Script block result
           run: |
                echo "Val2: ${{ steps.set-Val2.outputs.Val2 }}"
-               echo "variable from shell environment : $stage_result"
+               echo "variable from shell environment : $env.stage_result"
           shell: pwsh
       
 
