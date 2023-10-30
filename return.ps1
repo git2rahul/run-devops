@@ -1,4 +1,4 @@
-$var = false
+$var = true
 
 Function ReturnValue()
 {
