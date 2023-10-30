@@ -3,4 +3,4 @@ Function ReturnValue()
   return false
 }
 
-ReturnValue()
+ReturnValue
