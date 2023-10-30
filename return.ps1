@@ -1,6 +1,6 @@
 Function ReturnValue()
 {
-  return false
+  return true
 }
 
 ReturnValue
