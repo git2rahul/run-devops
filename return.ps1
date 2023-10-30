@@ -1,6 +1,8 @@
+$var = false
+
 Function ReturnValue()
 {
-  return true
+  return $var
 }
 
 ReturnValue
