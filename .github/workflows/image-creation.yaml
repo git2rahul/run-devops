@@ -39,6 +39,7 @@ jobs:
         - name: Rub packer
           run: |
            echo "Run packer on environment : $env_var" 
+           exit 1
 
     # This job is to setup and run packer to create managed image.       
     Handle-failure:
