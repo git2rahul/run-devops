@@ -45,7 +45,6 @@ jobs:
           if: always() && failure()
           run: |
            echo "Failure cleanup"
-           exit 1
 
     # This job is to do post validation on the image created as part of packer.  
     Post-Validation:
