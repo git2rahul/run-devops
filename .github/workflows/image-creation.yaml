@@ -44,7 +44,7 @@ jobs:
 
     # This job is to setup and run packer to create managed image.       
     Handle-failure:
-      if: failure()
+      if: always() && failure()
       needs: Setup-Run-Packer
       name: Failure cleanup
       runs-on: ubuntu-latest
