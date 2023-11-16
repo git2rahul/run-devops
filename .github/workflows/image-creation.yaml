@@ -37,26 +37,18 @@ jobs:
       runs-on: ubuntu-latest
       environment: development
       steps:
-        - name: Rub packer
+        - name: Run packer
           run: |
            echo "Run packer on environment : $env_var" 
            exit 1
-
-    # This job is to setup and run packer to create managed image.       
-    Handle-failure:
-      if: always() && failure()
-      needs: Setup-Run-Packer
-      name: Failure cleanup
-      runs-on: ubuntu-latest
-      environment: development
-      steps:
         - name: Failure cleanup Task
+          if: always() && failure()
           run: |
            echo "Failure cleanup"
-    
+
     # This job is to do post validation on the image created as part of packer.  
     Post-Validation:
-      if: ${{contains(vars.job_switches, 'skip') }} 
+      if: ${{contains(vars.job_switches, 'packer') }} 
       needs: Setup-Run-Packer
       name: Validate Image
       runs-on: ubuntu-latest
