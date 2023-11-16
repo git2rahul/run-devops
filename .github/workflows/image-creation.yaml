@@ -40,7 +40,7 @@ jobs:
         - name: Run packer
           run: |
            echo "Run packer on environment : $env_var" 
-           exit 1
+           #exit 1
         - name: Failure cleanup Task
           if: always() && failure()
           run: |
