@@ -33,7 +33,7 @@ jobs:
       if: ${{contains(vars.job_switches, 'packer') }} 
       needs: Validate-Inputs
       name: Run packer
-      continue-on-error: true
+   #   continue-on-error: true
       runs-on: ubuntu-latest
       environment: development
       steps:
