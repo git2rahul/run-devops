@@ -33,6 +33,7 @@ jobs:
       if: ${{contains(vars.job_switches, 'packer') }} 
       needs: Validate-Inputs
       name: Run packer
+      continue-on-error: true
       runs-on: ubuntu-latest
       environment: development
       steps:
@@ -44,7 +45,7 @@ jobs:
     # This job is to setup and run packer to create managed image.       
     Handle-failure:
       if: failure()
-      needs: Validate-Inputs
+      needs: Setup-Run-Packer
       name: Failure cleanup
       runs-on: ubuntu-latest
       environment: development
