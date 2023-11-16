@@ -40,6 +40,18 @@ jobs:
           run: |
            echo "Run packer on environment : $env_var" 
 
+    # This job is to setup and run packer to create managed image.       
+    Handle-failure:
+      if: failure()
+      needs: Validate-Inputs
+      name: Failure cleanup
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - name: Failure cleanup Task
+          run: |
+           echo "Failure cleanup"
+    
     # This job is to do post validation on the image created as part of packer.  
     Post-Validation:
       if: ${{contains(vars.job_switches, 'skip') }} 
