@@ -28,6 +28,8 @@ jobs:
         with:
           secret: ${{ github.TOKEN }}
           approvers: git2rahul
+          issue-title:  Approve publish image
+          issue-body: "Please approve or deny the image publishing"
       
       - name: Deploy to production
         run: echo deploying
