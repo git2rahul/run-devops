@@ -23,6 +23,7 @@ jobs:
       name: Publish Script
       runs-on: ubuntu-latest
       steps:
+      - name: Approve publish image
       - uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
