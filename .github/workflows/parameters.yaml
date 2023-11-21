@@ -23,6 +23,14 @@ jobs:
       name: Publish Script
       runs-on: ubuntu-latest
       steps:
-        - name: Testing eco of repo  variables
-          run: |
+      - uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: trstringer,acdunnigan
+      
+      - name: Deploy to production
+        run: echo deploying
+        
+      - name: Testing eco of repo  variables
+        run: |
            echo "Publishing on environment : $env_var" 
