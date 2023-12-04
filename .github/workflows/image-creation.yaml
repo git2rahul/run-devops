@@ -80,7 +80,7 @@ jobs:
     # This job is to publish the image in the Azure compute gallery.  
     sample-parallel:
       #if: ${{contains(vars.job_switches, 'skip') }}
-      if: always() || cancelled()
+      if: always()
       needs: Setup-Run-Packer
       name: Sample Parallel
       runs-on: ubuntu-latest
