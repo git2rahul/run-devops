@@ -48,7 +48,7 @@ jobs:
           run: |
            echo "Run packer 3"
         - name: Failure cleanup Task
-          if: always()
+          if: always() || cancelled()
           run: |
            echo "Failure cleanup"
 
