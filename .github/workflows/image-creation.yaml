@@ -41,6 +41,12 @@ jobs:
           run: |
            echo "Run packer on environment : $env_var" 
            #exit 1
+        - name: Run packer 2
+          run: |
+           echo "Run packer 2"
+        - name: Run packer 3
+          run: |
+           echo "Run packer 3"
         - name: Failure cleanup Task
           if: always()
           run: |
