@@ -32,7 +32,7 @@ jobs:
     Setup-Run-Packer:
       if: ${{contains(vars.job_switches, 'packer') }} 
       needs: Validate-Inputs
-      name: Run packer
+      name: Image build
    #   continue-on-error: true
       runs-on: ubuntu-latest
       environment: development
@@ -81,7 +81,7 @@ jobs:
     Promotion-image-build:
       if: ${{contains(vars.job_switches, 'promoteimage') }}
       needs: Validate-Inputs
-      name: Sample Parallel
+      name: Promotion Image build
       runs-on: ubuntu-latest
       environment: development
       steps:
