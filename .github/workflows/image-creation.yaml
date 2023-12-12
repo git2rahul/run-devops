@@ -95,7 +95,7 @@ jobs:
     
     # This job is to publish the image in the Azure compute gallery.  
     Promotion-image-build:
-      if: ${{contains(vars.job_switches, 'promoteimage') }}
+      if: ${{contains(vars.job_switches, 'promoteimage') }} && ${{ inputs.runtype == 'promotion'}}
       needs: Validate-Inputs
       name: Promotion Image build
       runs-on: ubuntu-latest
@@ -108,10 +108,10 @@ jobs:
     Promote-image:
       if: ${{contains(vars.job_switches, 'promote') }}
       needs: Promotion-image-build
-      name: Promote Image to Prod
+      name: "Promote Image to ${{ inputs.environment}}"
       runs-on: ubuntu-latest
       environment: development
       steps:
         - name: Testing Image Promotion Script
           run: |
-           echo "Testing Image Promotion Script"
+           echo "Testing Image Promotion Script to ${{ inputs.environment}}"
