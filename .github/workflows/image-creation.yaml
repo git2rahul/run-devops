@@ -46,7 +46,7 @@ jobs:
            
     # This job is to setup and run packer to create managed image.       
     Setup-Run-Packer:
-      if: ${{contains(vars.job_switches, 'packer') } && { inputs.runtype == 'build'}}
+      if: ${{contains(vars.job_switches, 'packer') && inputs.runtype == 'build'}}
       needs: Validate-Inputs
       name: Image build
    #   continue-on-error: true
