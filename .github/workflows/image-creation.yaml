@@ -1,6 +1,20 @@
 # This is the name of workflow
 name: Package Image creator
-on: [workflow_dispatch]
+on: 
+ workflow_dispatch:
+  inputs:
+      runtype:
+        description: 'Run Type'
+        required: true
+        default: 'build'
+        type: choice
+        options:
+        - build
+        - promotion
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
 
 # This block is used to setup global environment variables shared across enitre workflow
 env:
@@ -27,6 +41,8 @@ jobs:
         - name: Testing eco of repo  variables
           run: |
            echo "variable from shell environment : $env_var"
+           echo "Environment: $ENVIRONMENT"
+           echo "Environment: $RUNTYPE"
            
     # This job is to setup and run packer to create managed image.       
     Setup-Run-Packer:
