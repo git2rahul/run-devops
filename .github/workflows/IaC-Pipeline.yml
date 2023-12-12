@@ -1,0 +1,51 @@
+# This is the name of workflow
+name: Package Image creator
+on: 
+ workflow_dispatch:
+  inputs:
+      galleryname:
+        description: 'Gallery Name'
+        required: true
+        default: 'igdts01'
+        type: choice
+        options:
+        - igdts01
+        - igdts02
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
+
+# This block is used to setup global environment variables shared across enitre workflow
+env:
+ env_var: ${{ vars.MESSAGE_REPO }}
+ sample_credentials: ${{ secrets.SAMPLE_SECRET }}
+ #sample_secret_ID: ${{ fromJSON(secrets.AZURE_CRED)['clientId'] }}
+ 
+# Jobs are listed to be run of GitHub runners. 
+jobs:
+    # This job is to validate all the input values used in workflow.
+    Create-VM:
+      if: ${{contains(vars.job_switches, 'validate') }} 
+      name: Create VM
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - uses: actions/checkout@v1
+        - name: Testing eco of repo  variables
+          run: |
+           echo "variable from shell environment : $env_var"
+           echo "Environment: ${{ inputs.environment }}"
+           echo "Gallery Name: ${{ inputs.galleryname }}"
+           
+    # This job is to setup and run packer to create managed image.       
+    Configure-Secrets:
+      if: ${{contains(vars.job_switches, 'packer') }}
+      needs: Create-VM
+      name: Configure Secrets
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - name: Configure SQL Secrets
+          run: |
+           echo "Run packer on environment : $env_var" 
