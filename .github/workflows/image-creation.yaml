@@ -78,14 +78,24 @@ jobs:
            echo "Image Publish Script on environment : $env_var"
     
     # This job is to publish the image in the Azure compute gallery.  
-    sample-parallel:
-      #if: ${{contains(vars.job_switches, 'skip') }}
-      if: always()
-      needs: Setup-Run-Packer
+    Promotion-image-build:
+      if: ${{contains(vars.job_switches, 'promoteimage') }}
+      needs: Validate-Inputs
       name: Sample Parallel
       runs-on: ubuntu-latest
       environment: development
       steps:
-        - name: Testing Image Publish Script
+        - name: Testing PromotionImage build Script
           run: |
-           echo "Example of Parallel"
+           echo "Testing PromotionImage build Script"
+
+    Promote-image:
+      if: ${{contains(vars.job_switches, 'promote') }}
+      needs: Promotion-image-build
+      name: Promote Image to Prod
+      runs-on: ubuntu-latest
+      environment: development
+      steps:
+        - name: Testing Image Promotion Script
+          run: |
+           echo "Testing Image Promotion Script"
