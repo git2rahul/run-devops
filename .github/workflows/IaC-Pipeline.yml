@@ -1,5 +1,5 @@
 # This is the name of workflow
-name: Package Image creator
+name: IaC Pipeline
 on: 
  workflow_dispatch:
   inputs:
