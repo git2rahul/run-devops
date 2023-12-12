@@ -26,7 +26,7 @@ env:
 jobs:
     # This job is to validate all the input values used in workflow.
     Validate-Inputs:
-      if: ${{contains(vars.job_switches, 'validate') }} 
+      if: ${{contains(vars.job_switches, 'validate') }} && ${{ inputs.runtype == 'build'}}
       name: Validate Inputs
       runs-on: ubuntu-latest
       environment: development
