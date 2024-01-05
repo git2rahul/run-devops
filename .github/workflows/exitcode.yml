@@ -31,6 +31,7 @@ jobs:
     build:
       name: Run Script
       runs-on: [self-hosted, "${{ env.runtag }}"]
+      environment: development
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
@@ -43,7 +44,7 @@ jobs:
               #echo "Val2=TETE" >> $GITHUB_OUTPUT
                echo ${{ env.environment_shortName}}
                echo ${{ env.runtag}}
-               echo ${{ var.MESSAGE}}
+               echo ${{ vars.MESSAGE}}
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
