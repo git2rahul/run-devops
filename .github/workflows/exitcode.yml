@@ -23,7 +23,7 @@ on:
 env:
  stage_result: 'True' 
  if: ('${{inputs.runtype}}' -eq 'build')
- environment_shortName: 'dev' 
+ environment_shortName: 'development' 
  else environment_shortName: ${{inputs.runtype}}
  runtag: 'ubuntu-latest'
 
@@ -31,7 +31,7 @@ jobs:
     build:
       name: Run Script
       runs-on: ubuntu-latest
-      environment: development
+      environment: ${{ env.environment_shortName}}
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
