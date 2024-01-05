@@ -1,8 +1,28 @@
 name: Exit Code
-on: [workflow_dispatch]
-
+on: 
+ workflow_dispatch:
+  inputs:
+      Application:
+        description: 'Application Name'
+        required: true
+        default: 'DTS'
+        type: choice
+        options:
+        - DTS
+        - Licensing
+      runtype:
+        description: 'Run Type'
+        required: true
+        default: 'build'
+        type: choice
+        options:
+        - build
+        - staging
+        - production
+        
 env:
  stage_result: 'True' 
+ environment_shortName: if (${{inputs.runtype}} -eq 'build') then 'dev' else ${{inputs.runtype}}
 
 jobs:
     build:
@@ -17,7 +37,8 @@ jobs:
           run: |
               #stage_result="MyTestResourceGroup"
               #echo "Val2=$stage_result" >> $GITHUB_OUTPUT
-              echo "Val2=TETE" >> $GITHUB_OUTPUT
+              #echo "Val2=TETE" >> $GITHUB_OUTPUT
+               echo ${{ env.environment_shortName}}
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
