@@ -44,7 +44,7 @@ jobs:
               #echo "Val2=TETE" >> $GITHUB_OUTPUT
                echo "${{ format('{0}{1}{2}', inputs.runtype, '-', inputs.Application) }}" 
                echo ${{ env.runtag}}
-         #      echo ${{ vars.MESSAGE}}
+               echo ${{ vars.MESSAGE}}
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
