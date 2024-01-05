@@ -31,7 +31,7 @@ jobs:
     build:
       name: Run Script
       runs-on: ubuntu-latest
-      environment: "${{ inputs.runtype }}"
+      environment: "${{ format('{0}{1}{2}', inputs.runtype, '-', inputs.Application) }}" 
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
@@ -42,7 +42,7 @@ jobs:
               #stage_result="MyTestResourceGroup"
               #echo "Val2=$stage_result" >> $GITHUB_OUTPUT
               #echo "Val2=TETE" >> $GITHUB_OUTPUT
-               echo ${{ env.environment_shortName}}
+               echo "${{ format('{0}{1}{2}', inputs.runtype, '-', inputs.Application) }}" 
                echo ${{ env.runtag}}
          #      echo ${{ vars.MESSAGE}}
           #continue-on-error: true
