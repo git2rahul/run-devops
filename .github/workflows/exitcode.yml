@@ -43,6 +43,7 @@ jobs:
               #echo "Val2=TETE" >> $GITHUB_OUTPUT
                echo ${{ env.environment_shortName}}
                echo ${{ env.runtag}}
+               echo ${{ var.MESSAGE}}
           #continue-on-error: true
           shell: pwsh
         - name: Script block result
