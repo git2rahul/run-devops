@@ -25,11 +25,12 @@ env:
  if: ('${{inputs.runtype}}' -eq 'build')
  environment_shortName: 'dev' 
  else environment_shortName: ${{inputs.runtype}}
+ runtag: 'ubuntu-latest'
 
 jobs:
     build:
       name: Run Script
-      runs-on: ubuntu-latest
+      runs-on: $runtag
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
