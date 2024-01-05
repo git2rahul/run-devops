@@ -30,7 +30,7 @@ env:
 jobs:
     build:
       name: Run Script
-      runs-on: [self-hosted, "${{ env.runtag }}"]
+      runs-on: ubuntu-latest
       environment: development
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
