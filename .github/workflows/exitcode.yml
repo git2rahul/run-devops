@@ -22,7 +22,9 @@ on:
         
 env:
  stage_result: 'True' 
- environment_shortName: if ('${{inputs.runtype}}' -eq 'build') then 'dev' else ${{inputs.runtype}}
+ if: ('${{inputs.runtype}}' -eq 'build')
+ environment_shortName: 'dev' 
+ else environment_shortName: ${{inputs.runtype}}
 
 jobs:
     build:
