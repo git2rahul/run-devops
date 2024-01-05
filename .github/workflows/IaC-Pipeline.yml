@@ -21,6 +21,7 @@ env:
  env_var: ${{ vars.MESSAGE_REPO }}
  sample_credentials: ${{ secrets.SAMPLE_SECRET }}
  #sample_secret_ID: ${{ fromJSON(secrets.AZURE_CRED)['clientId'] }}
+ envname: 'development'
  
 # Jobs are listed to be run of GitHub runners. 
 jobs:
@@ -29,7 +30,7 @@ jobs:
       if: ${{contains(vars.job_switches, 'validate') }} 
       name: Create VM
       runs-on: ubuntu-latest
-      environment: development
+      environment: $envname
       steps:
         - uses: actions/checkout@v1
         - name: Testing eco of repo  variables
