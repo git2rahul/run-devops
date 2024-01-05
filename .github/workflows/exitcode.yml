@@ -31,7 +31,7 @@ jobs:
     build:
       name: Run Script
       runs-on: ubuntu-latest
-      environment: ${{ env.environment_shortName}}
+      environment: "${{ inputs.runtype }}"
       outputs:
         var_Val2: ${{ steps.set-Val2.outputs.Val2 }}
       steps:
