@@ -35,7 +35,7 @@ jobs:
         - uses: actions/checkout@v1
         - name: Testing eco of repo  variables
           run: |
-           echo "variable from shell environment : $env_var"
+           echo "variable from shell environment :  ${{ env.env_var }}"
            echo "Environment: ${{ inputs.environment }}"
            echo "Gallery Name: ${{ inputs.galleryname }}"
            echo "Runner OS : ${{ runner.os }}"
